@@ -1,0 +1,14 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "2022_MDP_Project_electron",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Hanyul Park",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^18.2.0"
+  }
+}
