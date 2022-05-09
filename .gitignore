@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,intellij,eclipse,c,git,java,linux,python,visualstudiocode,gradle,node,windows,opencv,orcad
-# Edit at https://www.toptal.com/developers/gitignore?templates=android,androidstudio,intellij,eclipse,c,git,java,linux,python,visualstudiocode,gradle,node,windows,opencv,orcad
+# Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad
+# Edit at https://www.toptal.com/developers/gitignore?templates=android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad
 
 ### Android ###
 # Gradle files
@@ -635,6 +635,19 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+### react ###
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+node_modules
+
+*.sublime*
+
+psd
+thumb
+sketch
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -810,4 +823,4 @@ obj/
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,intellij,eclipse,c,git,java,linux,python,visualstudiocode,gradle,node,windows,opencv,orcad
+# End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad
