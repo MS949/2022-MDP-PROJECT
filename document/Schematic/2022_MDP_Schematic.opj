@@ -84,40 +84,55 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 0 866 0 265")
-        (Scroll "-93 0")
-        (Zoom "54")
+        (Placement "44 2 3 -1 -1 -8 -31 52 1238 52 303")
+        (Scroll "0 49")
+        (Zoom "100")
         (Occurrence "/"))
-      (Path "D:\2022MDP_SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Path
+         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
       (Schematic "SCHEMATIC1")
       (Page "Bathroom"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 26 892 26 291")
-        (Scroll "0 40")
-        (Zoom "100")
+        (Placement "44 0 1 -1 -1 -8 -31 78 1264 78 329")
+        (Scroll "-16 63")
+        (Zoom "114")
         (Occurrence "/"))
-      (Path "D:\2022MDP_SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Path
+         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
       (Schematic "SCHEMATIC1")
       (Page "Bedroom"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 52 918 52 317")
-        (Scroll "-117 0")
-        (Zoom "50")
+        (Placement "44 0 1 -1 -1 -8 -31 104 1290 104 355")
+        (Scroll "13 34")
+        (Zoom "100")
         (Occurrence "/"))
-      (Path "D:\2022MDP_SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Path
+         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
       (Schematic "SCHEMATIC1")
       (Page "Livingroom"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 78 944 78 343")
-        (Scroll "0 4")
+        (Placement "44 0 1 -1 -1 -8 -31 0 1186 0 251")
+        (Scroll "-16 69")
+        (Zoom "114")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "Outside"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 26 892 26 341")
+        (Scroll "0 110")
         (Zoom "100")
         (Occurrence "/"))
-      (Path "D:\2022MDP_SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Path
+         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "Outside"))))
+      (Page "Raspberry_Pi"))))
