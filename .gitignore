@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad
-# Edit at https://www.toptal.com/developers/gitignore?templates=android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad
+# Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad,sketchup
+# Edit at https://www.toptal.com/developers/gitignore?templates=android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad,sketchup
 
 ### Android ###
 # Gradle files
@@ -823,4 +823,7 @@ obj/
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad
+### SketchUp ###
+*.skb
+
+# End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,intellij,eclipse,visualstudiocode,java,c,python,react,node,gradle,opencv,windows,linux,git,orcad,sketchup
