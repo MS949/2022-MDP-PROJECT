@@ -4,16 +4,6 @@
   (Folder "Design Resources"
     (Folder "Library"
       (File ".\bathroom.olb"
-        (Type "Schematic Library"))
-      (File ".\keypad.olb.olb"
-        (Type "Schematic Library"))
-      (File ".\l298nandmotor.olb.olb"
-        (Type "Schematic Library"))
-      (File ".\library2.olb.olb"
-        (Type "Schematic Library"))
-      (File ".\wifi.olb.olb"
-        (Type "Schematic Library"))
-      (File ".\library1.olb"
         (Type "Schematic Library")))
     (NoModify)
     (File ".\2022_mdp_schematic.dsn"
@@ -23,18 +13,9 @@
   (Folder "Outputs")
   (Folder "Referenced Projects")
   (PartMRUSelector
-    (RASPBERRY_PI
-      (FullPartName "RASPBERRY_PI.Normal")
-      (LibraryName "D:\BATHROOM\BATHROOM.OLB")
-      (DeviceIndex "0"))
-    (Camera
-      (FullPartName "Camera.Normal")
-      (LibraryName "D:\BATHROOM\BATHROOM.OLB")
-      (DeviceIndex "0"))
-    ("MOTOR SERVO"
-      (FullPartName "MOTOR SERVO.Normal")
-      (LibraryName
-         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\ELECTROMECHANICAL.OLB")
+    (KEY-PAD
+      (FullPartName "KEY-PAD.Normal")
+      (LibraryName "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\BATHROOM.OLB")
       (DeviceIndex "0"))
     (GND
       (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
@@ -42,9 +23,57 @@
     (VCC
       (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
+    ("NPN BCE"
+      (FullPartName "NPN BCE.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\TRANSISTOR.OLB")
+      (DeviceIndex "0"))
     (R
       (FullPartName "R.Normal")
       (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    ("PNP BCE"
+      (FullPartName "PNP BCE.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\TRANSISTOR.OLB")
+      (DeviceIndex "0"))
+    (d
+      (FullPartName "d.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\EVAL.OLB")
+      (DeviceIndex "0"))
+    (SPEAKER
+      (FullPartName "SPEAKER.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (OFFPAGELEFT-L
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (Camera
+      (FullPartName "Camera.Normal")
+      (LibraryName "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\BATHROOM.OLB")
+      (DeviceIndex "0"))
+    (socket
+      (FullPartName "socket.Normal")
+      (LibraryName "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\BATHROOM.OLB")
+      (DeviceIndex "0"))
+    (VCC_BAR
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    ("SW KEY-SPDT"
+      (FullPartName "SW KEY-SPDT.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (RASPBERRY_PI
+      (FullPartName "RASPBERRY_PI.Normal")
+      (LibraryName "D:\BATHROOM\BATHROOM.OLB")
+      (DeviceIndex "0"))
+    ("MOTOR SERVO"
+      (FullPartName "MOTOR SERVO.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\ELECTROMECHANICAL.OLB")
       (DeviceIndex "0"))
     (ESP8266
       (FullPartName "ESP8266.Normal")
@@ -70,73 +99,55 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources"
-         "c:\users\user\desktop\mdp_project\document\schematic\2022_mdp_schematic.dsn")
-      (Path "Design Resources"
-         "c:\users\user\desktop\mdp_project\document\schematic\2022_mdp_schematic.dsn"
-         "SCHEMATIC1")
+      (Path "Design Resources" ".\2022_mdp_schematic.dsn")
+      (Path "Design Resources" ".\2022_mdp_schematic.dsn" "SCHEMATIC1")
       (Path "Design Resources" "Library")
-      (Select "Design Resources"
-         "c:\users\user\desktop\mdp_project\document\schematic\2022_mdp_schematic.dsn"
-         "SCHEMATIC1" "Bathroom"))
+      (Path "Design Resources" "Library" ".\bathroom.olb")
+      (Select "Design Resources" "Library"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 222"))
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 222"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 52 1238 52 303")
-        (Scroll "-113 43")
-        (Zoom "78")
+        (Placement "44 0 1 -1 -1 -8 -31 52 1212 52 317")
+        (Scroll "-217 0")
+        (Zoom "58")
         (Occurrence "/"))
-      (Path
-         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Path "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
       (Schematic "SCHEMATIC1")
       (Page "Bathroom"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 78 1264 78 329")
-        (Scroll "0 133")
-        (Zoom "124")
+        (Placement "44 0 1 -1 -1 -8 -31 78 1238 78 343")
+        (Scroll "-44 0")
+        (Zoom "62")
         (Occurrence "/"))
-      (Path
-         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Path "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
       (Schematic "SCHEMATIC1")
       (Page "Bedroom"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 104 1290 104 355")
-        (Scroll "-173 87")
-        (Zoom "78")
+        (Placement "44 0 1 -1 -1 -8 -31 130 1290 130 395")
+        (Scroll "-41 0")
+        (Zoom "88")
         (Occurrence "/"))
-      (Path
-         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "Livingroom"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 0 1186 0 251")
-        (Scroll "-132 0")
-        (Zoom "90")
-        (Occurrence "/"))
-      (Path
-         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Path "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
       (Schematic "SCHEMATIC1")
       (Page "Outside"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 26 892 26 341")
-        (Scroll "0 200")
-        (Zoom "100")
+        (Placement "44 0 1 -1 -1 -8 -31 26 1186 26 291")
+        (Scroll "181 133")
+        (Zoom "176")
         (Occurrence "/"))
-      (Path
-         "C:\USERS\USER\DESKTOP\MDP_PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
+      (Path "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\2022_MDP_SCHEMATIC.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "Raspberry_Pi"))))
+      (Page "Livingroom")))
+  (LastUsedLibraryBrowseDirectory "D:\bathroom"))
