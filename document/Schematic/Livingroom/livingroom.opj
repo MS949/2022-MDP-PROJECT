@@ -1,0 +1,40 @@
+(ExpressProject "livingroom"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\livingroom.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector)
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "D:\MDP-PROJECT\document\Schematic\Livingroom\livingroom.dsn")
+      (Path "Design Resources"
+         "D:\MDP-PROJECT\document\Schematic\Livingroom\livingroom.dsn"
+         "SCHEMATIC1")
+      (Select "Design Resources"
+         "D:\MDP-PROJECT\document\Schematic\Livingroom\livingroom.dsn"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 226"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 130 996 130 395")
+        (Scroll "-152 0")
+        (Zoom "44")
+        (Occurrence "/"))
+      (Path "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\LIVINGROOM\LIVINGROOM.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "livingroom")))
+  (MPSSessionName "User"))

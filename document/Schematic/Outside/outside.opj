@@ -1,0 +1,49 @@
+(ExpressProject "outside"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\outside.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    (GND
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VCC
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VCC_BAR
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "D:\MDP-PROJECT\document\Schematic\Outside\outside.dsn")
+      (Path "Design Resources"
+         "D:\MDP-PROJECT\document\Schematic\Outside\outside.dsn" "SCHEMATIC1")
+      (Select "Design Resources"
+         "D:\MDP-PROJECT\document\Schematic\Outside\outside.dsn" "SCHEMATIC1"
+         "outside"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 226"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 104 971 104 369")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\OUTSIDE\OUTSIDE.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "outside")))
+  (MPSSessionName "User"))

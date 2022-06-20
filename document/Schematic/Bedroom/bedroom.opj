@@ -1,0 +1,85 @@
+(ExpressProject "bedroom"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "..\bathroom\library2.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\bedroom.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    (NOT
+      (FullPartName "NOT.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\GATE.OLB")
+      (DeviceIndex "0"))
+    ("NPN BCE"
+      (FullPartName "NPN BCE.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\TRANSISTOR.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (VCC_BAR
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (l298n
+      (FullPartName "l298n.Normal")
+      (LibraryName "D:\BATHROOM\L298NANDMOTOR.OLB.OLB")
+      (DeviceIndex "0"))
+    (endstop
+      (FullPartName "endstop.Normal")
+      (LibraryName "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\BATHROOM\LIBRARY2.OLB")
+      (DeviceIndex "0"))
+    ("Endstop switch"
+      (FullPartName "Endstop switch.Normal")
+      (LibraryName "D:\BATHROOM\BATHROOM.OLB")
+      (DeviceIndex "0"))
+    ("SW KEY-SPDT"
+      (FullPartName "SW KEY-SPDT.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    ("MOTOR AC"
+      (FullPartName "MOTOR AC.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\ELECTROMECHANICAL.OLB")
+      (DeviceIndex "0"))
+    ("SW DPDT/SM"
+      (FullPartName "SW DPDT/SM.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "D:\MDP-PROJECT\document\Schematic\Bedroom\bedroom.dsn")
+      (Path "Design Resources"
+         "D:\MDP-PROJECT\document\Schematic\Bedroom\bedroom.dsn" "SCHEMATIC1")
+      (Path "Design Resources" "Library")
+      (Path "Design Resources" "Library" "..\bathroom\library2.olb"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 226"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 26 892 26 291")
+        (Scroll "0 141")
+        (Zoom "88")
+        (Occurrence "/"))
+      (Path "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\BEDROOM\BEDROOM.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "bedroom")))
+  (MPSSessionName "User")
+  (LastUsedLibraryBrowseDirectory "D:\MDP-PROJECT\document\Schematic\Bedroom"))

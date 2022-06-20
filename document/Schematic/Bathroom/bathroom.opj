@@ -1,0 +1,67 @@
+(ExpressProject "bathroom"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\bathroom.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (OPAMP
+      (FullPartName "OPAMP.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    ("NPN BCE"
+      (FullPartName "NPN BCE.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\TRANSISTOR.OLB")
+      (DeviceIndex "0"))
+    (VCC_BAR
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (OP166/SO
+      (FullPartName "OP166/SO.Normal")
+      (LibraryName "C:\CADENCE\SPB_17.2\TOOLS\CAPTURE\LIBRARY\OPAMP.OLB")
+      (DeviceIndex "0"))
+    ("infra sensor"
+      (FullPartName "infra sensor.Normal")
+      (LibraryName "D:\BATHROOM\BATHROOM.OLB")
+      (DeviceIndex "0"))
+    (szh-ek057
+      (FullPartName "szh-ek057.Normal")
+      (LibraryName "D:\BATHROOM\LIBRARY2.OLB.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\bathroom.dsn")
+      (Select "Design Resources"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 226"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 130 996 130 395")
+        (Scroll "-372 0")
+        (Zoom "44")
+        (Occurrence "/"))
+      (Path "D:\MDP-PROJECT\DOCUMENT\SCHEMATIC\BATHROOM\BATHROOM.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "bathroom")))
+  (LastUsedLibraryBrowseDirectory "D:\MDP-PROJECT\document\Schematic\Bathroom")
+  (MPSSessionName "User"))
