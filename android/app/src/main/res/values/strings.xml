@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">MDP_Project_2022</string>
+    <string name="app_name">머리가Things</string>
+    <string name="setting">setting</string>
+    <string name="home">home</string>
+    <string name="other">other</string>
 </resources>
