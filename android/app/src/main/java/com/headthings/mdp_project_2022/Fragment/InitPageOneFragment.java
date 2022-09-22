@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.headthings.mdp_project_2022.R;
 
-public class InitPageFragment extends Fragment {
+public class InitPageOneFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return (ViewGroup) inflater.inflate(R.layout.fragment_one, container, false);
+        return (ViewGroup) inflater.inflate(R.layout.fragment_init_page_one, container, false);
     }
 }
