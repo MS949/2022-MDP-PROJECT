@@ -8,13 +8,16 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.headthings.mdp_project_2022.Fragment.InitPageFragment;
+import com.headthings.mdp_project_2022.Fragment.InitPageFourFragment;
+import com.headthings.mdp_project_2022.Fragment.InitPageOneFragment;
+import com.headthings.mdp_project_2022.Fragment.InitPageThreeFragment;
+import com.headthings.mdp_project_2022.Fragment.InitPageTwoFragment;
 
 import me.relex.circleindicator.CircleIndicator3;
 
 public class FirstBootingActivity extends FragmentActivity {
 
-    private static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 4;
 
     private ViewPager2 mPager;
 
@@ -53,18 +56,16 @@ public class FirstBootingActivity extends FragmentActivity {
         @Override
         public Fragment createFragment(int position) {
             switch (position) {
+                case 0:
+                    return new InitPageOneFragment();
                 case 1:
-                    return new InitPageFragment();
+                    return new InitPageTwoFragment();
                 case 2:
-                    return new InitPageFragment();
+                    return new InitPageThreeFragment();
                 case 3:
-                    return new InitPageFragment();
-                case 4:
-                    return new InitPageFragment();
-                case 5:
-                    return new InitPageFragment();
+                    return new InitPageFourFragment();
             }
-            return new InitPageFragment();
+            return new InitPageOneFragment();
         }
 
         @Override
