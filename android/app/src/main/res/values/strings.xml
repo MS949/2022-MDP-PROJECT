@@ -3,4 +3,6 @@
     <string name="setting">setting</string>
     <string name="home">home</string>
     <string name="other">other</string>
+    <!-- variable -->
+    <string name="isFirst">isFirst</string>
 </resources>
