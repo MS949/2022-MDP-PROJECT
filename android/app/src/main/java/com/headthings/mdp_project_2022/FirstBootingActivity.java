@@ -13,11 +13,16 @@ import com.headthings.mdp_project_2022.Fragment.InitPageOneFragment;
 import com.headthings.mdp_project_2022.Fragment.InitPageThreeFragment;
 import com.headthings.mdp_project_2022.Fragment.InitPageTwoFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import me.relex.circleindicator.CircleIndicator3;
 
 public class FirstBootingActivity extends FragmentActivity {
 
     private static final int NUM_PAGES = 4;
+
+    @BindView(R.id.indicator)
+    CircleIndicator3 indicator;
 
     private ViewPager2 mPager;
 
@@ -25,6 +30,7 @@ public class FirstBootingActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_booting);
+        ButterKnife.bind(this, this);
 
         FragmentStateAdapter pagerAdapter = new ScreenSlidePagerAdapter(this);
 
@@ -33,7 +39,6 @@ public class FirstBootingActivity extends FragmentActivity {
 
         mPager.setPageTransformer(new DepthPageTransformer());
 
-        CircleIndicator3 indicator = findViewById(R.id.indicator);
         indicator.setViewPager(mPager);
     }
 
@@ -72,5 +77,6 @@ public class FirstBootingActivity extends FragmentActivity {
         public int getItemCount() {
             return NUM_PAGES;
         }
+
     }
 }

@@ -9,11 +9,16 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import is.arontibo.library.ElasticDownloadView;
 
 public class SplashActivity extends AppCompatActivity {
 
+    @BindView(R.id.elastic_download_view)
     ElasticDownloadView mElasticDownloadView;
+
+    @BindView(R.id.loading_text)
     TextView loadingText;
 
     Handler mHandler = new Handler();
@@ -22,10 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-        mElasticDownloadView = findViewById(R.id.elastic_download_view);
-
-        loadingText = findViewById(R.id.loading_text);
+        ButterKnife.bind(this, this);
 
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.isFirst), Activity.MODE_PRIVATE);
         boolean isFirst = sharedPreferences.getBoolean(getString(R.string.isFirst), true);

@@ -5,16 +5,20 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBar;
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.bottom_bar)
+    ExpandableBottomBar bottomBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ExpandableBottomBar bottomBar = findViewById(R.id.bottom_bar);
+        ButterKnife.bind(this, this);
 
         bottomBar.setOnItemSelectedListener((view, menuItem, aBoolean) -> {
             switch (menuItem.getId()) {
