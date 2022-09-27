@@ -1,4 +1,4 @@
-package com.headthings.mdp_project_2022.Fragment;
+package com.headthings.mdp_project_2022.initPageFragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
