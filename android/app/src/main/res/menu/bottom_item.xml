@@ -9,15 +9,16 @@
         app:exb_color="@color/secondary" />
 
     <item
+        android:id="@+id/list"
+        android:icon="@drawable/ic_list"
+        android:title="@string/list"
+        app:exb_color="@color/secondary" />
+
+    <item
         android:id="@+id/setting"
         android:icon="@drawable/ic_setting"
         android:title="@string/setting"
         app:exb_color="@color/secondary" />
 
-    <item
-        android:id="@+id/other"
-        android:icon="@drawable/ic_setting"
-        android:title="@string/other"
-        app:exb_color="@color/secondary" />
 
 </menu>

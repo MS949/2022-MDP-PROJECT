@@ -19,7 +19,7 @@
         android:gravity="center"
         android:shadowColor="@color/black"
         android:shadowRadius="2"
-        android:text="SETTING"
+        android:text="@string/setting"
         android:textColor="@color/black"
         android:textSize="24sp" />
 

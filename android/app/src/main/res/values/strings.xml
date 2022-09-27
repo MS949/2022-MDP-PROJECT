@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">머리가Things</string>
-    <string name="setting">setting</string>
     <string name="home">home</string>
-    <string name="other">other</string>
+    <string name="list">list</string>
+    <string name="setting">setting</string>
     <!-- variable -->
     <string name="isFirst">isFirst</string>
 </resources>

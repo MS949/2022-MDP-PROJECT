@@ -11,7 +11,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.headthings.mdp_project_2022.TransForm.ZoomOutPageTransformer;
 import com.headthings.mdp_project_2022.mainFragment.HomeFragment;
-import com.headthings.mdp_project_2022.mainFragment.OtherFragment;
+import com.headthings.mdp_project_2022.mainFragment.ListFragment;
 import com.headthings.mdp_project_2022.mainFragment.SettingFragment;
 
 import butterknife.BindView;
@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.home:
                     mPager.setCurrentItem(0);
                     break;
-                case R.id.setting:
+                case R.id.list:
                     mPager.setCurrentItem(1);
                     break;
-                case R.id.other:
+                case R.id.setting:
                     mPager.setCurrentItem(2);
                     break;
             }
@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return new HomeFragment();
                 case 1:
-                    return new SettingFragment();
+                    return new ListFragment();
                 case 2:
-                    return new OtherFragment();
+                    return new SettingFragment();
             }
             return new HomeFragment();
         }
