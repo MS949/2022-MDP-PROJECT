@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
     @BindView(R.id.loading_text)
     TextView loadingText;
 
-    Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this, this);
 
-        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.isFirst), Activity.MODE_PRIVATE);
-        boolean isFirst = sharedPreferences.getBoolean(getString(R.string.isFirst), true);
+        SharedPreferences pref = getSharedPreferences(getString(R.string.isFirst), Activity.MODE_PRIVATE);
+        boolean isFirst = pref.getBoolean(getString(R.string.isFirst), true);
 
         mHandler.post(() -> mElasticDownloadView.startIntro());
         for (int i = 0; i < 10; i++) {
@@ -38,24 +38,21 @@ public class SplashActivity extends AppCompatActivity {
             mHandler.postDelayed(() -> {
                 mElasticDownloadView.setProgress(tmp * 10);
                 loadingText.setText(tmp * 10 + "%");
-            }, tmp * 1000);
+            }, tmp * 500);
         }
 
         mHandler.postDelayed(() -> {
             mElasticDownloadView.success();
             loadingText.setText("로딩 완료");
-        }, 10 * 1000);
+        }, 10 * 500);
 
         mHandler.postDelayed(() -> {
+            startActivity(new Intent(this, MainActivity.class));
             if (isFirst) {
-//            SharedPreferences.Editor editor = pref.edit();
-//            editor.putBoolean(getString(R.string.isFirst),false);
-//            editor.apply();
-
                 startActivity(new Intent(this, FirstBootingActivity.class));
-                finish();
             }
-        }, 12500);
+            finish();
+        }, 12 * 500);
 
     }
 

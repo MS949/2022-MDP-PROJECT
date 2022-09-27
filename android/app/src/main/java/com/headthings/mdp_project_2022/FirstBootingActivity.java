@@ -8,10 +8,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.headthings.mdp_project_2022.Fragment.InitPageFourFragment;
-import com.headthings.mdp_project_2022.Fragment.InitPageOneFragment;
-import com.headthings.mdp_project_2022.Fragment.InitPageThreeFragment;
-import com.headthings.mdp_project_2022.Fragment.InitPageTwoFragment;
+import com.headthings.mdp_project_2022.TransForm.DepthPageTransformer;
+import com.headthings.mdp_project_2022.initPageFragment.InitPageFourFragment;
+import com.headthings.mdp_project_2022.initPageFragment.InitPageOneFragment;
+import com.headthings.mdp_project_2022.initPageFragment.InitPageThreeFragment;
+import com.headthings.mdp_project_2022.initPageFragment.InitPageTwoFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,12 +20,11 @@ import me.relex.circleindicator.CircleIndicator3;
 
 public class FirstBootingActivity extends FragmentActivity {
 
-    private static final int NUM_PAGES = 4;
-
     @BindView(R.id.indicator)
     CircleIndicator3 indicator;
 
-    private ViewPager2 mPager;
+    @BindView(R.id.init_pager)
+    ViewPager2 mPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +34,15 @@ public class FirstBootingActivity extends FragmentActivity {
 
         FragmentStateAdapter pagerAdapter = new ScreenSlidePagerAdapter(this);
 
-        mPager = findViewById(R.id.pager);
         mPager.setAdapter(pagerAdapter);
-
         mPager.setPageTransformer(new DepthPageTransformer());
 
         indicator.setViewPager(mPager);
     }
 
-    @Override
-    public void onBackPressed() {
-        if (mPager.getCurrentItem() == 0) {
-            super.onBackPressed();
-        } else {
-            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-        }
-    }
-
     private static class ScreenSlidePagerAdapter extends FragmentStateAdapter {
+
+        private static final int NUM_PAGES = 4;
 
         public ScreenSlidePagerAdapter(@NonNull FragmentActivity fragmentActivity) {
             super(fragmentActivity);

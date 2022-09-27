@@ -9,9 +9,9 @@
     tools:context=".FirstBootingActivity">
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pager"
+        android:id="@+id/init_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/indicator"
