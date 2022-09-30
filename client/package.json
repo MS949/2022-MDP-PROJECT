@@ -2,6 +2,7 @@
   "name": "electron",
   "version": "1.0.0",
   "description": "2022_MDP_Project_electron",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "electron ."
@@ -9,6 +10,9 @@
   "author": "Hanyul Park",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^18.2.0"
+    "electron": "^21.0.1"
+  },
+  "dependencies": {
+    "mqtt": "^4.3.7"
   }
 }

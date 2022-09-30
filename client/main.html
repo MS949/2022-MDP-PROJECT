@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>main</title>
-    </head>
-    <body>
-        <h1>2022 MDP Project <머리가 Thing></h1>
-        <h3>Hello World!</h3>
-        electron project create Test
-    </body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>머리가Thing</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script src="mqtt.js"></script>
+  </head>
+  <body>
+    <h1>머리가Thing</h1>
+
+    <div id="temp_button" onclick="mqttConnect()">
+      <input type="button" value="temp" />
+    </div>
+  </body>
 </html>
