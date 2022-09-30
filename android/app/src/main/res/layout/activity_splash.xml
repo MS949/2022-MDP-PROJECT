@@ -22,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
         elastic:backgroundColor="@color/primary" />
 
     <TextView
@@ -31,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/elastic_download_view"
         android:layout_centerHorizontal="true"
-        android:textSize="48sp"
-        tools:text="50%" />
+        android:textSize="24sp"
+        tools:text="ubuntuServer connect..." />
 
 </RelativeLayout>

@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import is.arontibo.library.ElasticDownloadView;
@@ -23,6 +26,10 @@ public class SplashActivity extends AppCompatActivity {
 
     private final Handler mHandler = new Handler();
 
+    private final String ServerIP = "tcp://192.168.0.100";
+    private final String TOPIC = "TopicName";
+    private MqttClient mqttClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,28 +39,34 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences(getString(R.string.isFirst), Activity.MODE_PRIVATE);
         boolean isFirst = pref.getBoolean(getString(R.string.isFirst), true);
 
-        mHandler.post(() -> mElasticDownloadView.startIntro());
-        for (int i = 0; i < 10; i++) {
-            int tmp = i;
-            mHandler.postDelayed(() -> {
-                mElasticDownloadView.setProgress(tmp * 10);
-                loadingText.setText(tmp * 10 + "%");
-            }, tmp * 500);
-        }
+        mHandler.post(() -> {
+            try {
+                mElasticDownloadView.startIntro();
+                mElasticDownloadView.setProgress(50);
+                loadingText.setText("ubuntuServer connect...");
 
-        mHandler.postDelayed(() -> {
-            mElasticDownloadView.success();
-            loadingText.setText("로딩 완료");
-        }, 10 * 500);
+                mqttClient = new MqttClient(ServerIP, MqttClient.generateClientId(), null);
+//                mqttClient.connect();
 
-        mHandler.postDelayed(() -> {
-            startActivity(new Intent(this, MainActivity.class));
-            if (isFirst) {
-                startActivity(new Intent(this, FirstBootingActivity.class));
+                mElasticDownloadView.success();
+                loadingText.setText("로딩 완료");
+
+                try {
+                    Thread.sleep(300);
+                    startActivity(new Intent(this, MainActivity.class));
+                    if (isFirst) {
+                        startActivity(new Intent(this, FirstBootingActivity.class));
+                    }
+                    finish();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } catch (MqttException e) {
+                mElasticDownloadView.fail();
+                loadingText.setText("에러: " + e.getMessage());
+                e.printStackTrace();
             }
-            finish();
-        }, 12 * 500);
 
+        });
     }
-
 }
