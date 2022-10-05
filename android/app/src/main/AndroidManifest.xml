@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--  인터넷 사용  -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--  네트워크 연결 확인  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--  WIFI 연결 확인  -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--  WIFI 변경 확인  -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,6 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MDP_Project_2022">
+
+        <!--  MQTT  -->
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">

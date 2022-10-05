@@ -31,6 +31,6 @@
         android:layout_alignBottom="@+id/elastic_download_view"
         android:layout_centerHorizontal="true"
         android:textSize="24sp"
-        tools:text="ubuntuServer connect..." />
+        tools:text="Server connect..." />
 
 </RelativeLayout>

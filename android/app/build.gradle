@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.headthings.mdp_project_2022"
-        minSdk 28
+        minSdk 28   // android pie
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -34,6 +34,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.jakewharton:butterknife:10.2.3'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
     implementation 'com.github.st235:expandablebottombar:1.5.1'         // https://github.com/st235/ExpandableBottomBar
     implementation 'me.relex:circleindicator:2.1.6'                     // https://github.com/ongakuer/CircleIndicator
     implementation 'com.github.tibolte:elasticdownload:1.0.4'           // https://github.com/Tibolte/ElasticDownload
