@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="25dp"
-            android:background="@drawable/black_oval"
+            android:background="@drawable/oval_black"
             android:gravity="center"
             android:shadowColor="@color/black"
             android:shadowRadius="2"

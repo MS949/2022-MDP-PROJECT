@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/black_oval"
+        android:background="@drawable/oval_black"
         android:text="확인"
         android:textColor="@color/black" />
 
