@@ -6,19 +6,19 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home"
         android:title="@string/home"
-        app:exb_color="@color/secondary" />
+        app:exb_color="@color/black" />
 
     <item
         android:id="@+id/list"
         android:icon="@drawable/ic_list"
         android:title="@string/list"
-        app:exb_color="@color/secondary" />
+        app:exb_color="@color/black" />
 
     <item
         android:id="@+id/setting"
         android:icon="@drawable/ic_setting"
         android:title="@string/setting"
-        app:exb_color="@color/secondary" />
+        app:exb_color="@color/black" />
 
 
 </menu>

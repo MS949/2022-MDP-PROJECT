@@ -39,7 +39,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private final String ServerIP = "tcp://192.168.0.100:1883";
     private final String TOPIC = "test/test";
-    private MqttClient mqttClient;
+    public static MqttClient mqttClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,36 +47,36 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this, this);
 
-        ConnectivityManager connectivityManager = getSystemService(ConnectivityManager.class);
+//        ConnectivityManager connectivityManager = getSystemService(ConnectivityManager.class);
 //        Network currentNetwork = connectivityManager.getActiveNetwork();
 //        LinkProperties linkProperties = connectivityManager.getLinkProperties(currentNetwork);
 //        NetworkCapabilities caps = connectivityManager.getNetworkCapabilities(currentNetwork);
 
-        connectivityManager.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
-
-            // 새 네트워크가 기본값
-            @Override
-            public void onAvailable(@NonNull Network network) {
-                Log.e("onAvailable", "기본 네트워크: " + network);
-            }
-
-            // 네트워크가 기본 네트워크로 설정된 상태를 상실
-            @Override
-            public void onLost(@NonNull Network network) {
-                Log.e("onLost", "기본 네트워크 연결이 해제되었습니다. 마지막 기본 네트워크: " + network);
-            }
-
-            //
-            @Override
-            public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
-                Log.e("onCapabilitiesChanged", "기본 네트워크 변경 값: " + networkCapabilities);
-            }
-
-            @Override
-            public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties linkProperties) {
-                Log.e("onLinkPropertiesChanged", "기본 네트워크 변경 링크 값: " + linkProperties);
-            }
-        });
+//        connectivityManager.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
+//
+//            // 새 네트워크가 기본값
+//            @Override
+//            public void onAvailable(@NonNull Network network) {
+//                Log.e("onAvailable", "기본 네트워크: " + network);
+//            }
+//
+//            // 네트워크가 기본 네트워크로 설정된 상태를 상실
+//            @Override
+//            public void onLost(@NonNull Network network) {
+//                Log.e("onLost", "기본 네트워크 연결이 해제되었습니다. 마지막 기본 네트워크: " + network);
+//            }
+//
+//            //
+//            @Override
+//            public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
+//                Log.e("onCapabilitiesChanged", "기본 네트워크 변경 값: " + networkCapabilities);
+//            }
+//
+//            @Override
+//            public void onLinkPropertiesChanged(@NonNull Network network, @NonNull LinkProperties linkProperties) {
+//                Log.e("onLinkPropertiesChanged", "기본 네트워크 변경 링크 값: " + linkProperties);
+//            }
+//        });
 
         SharedPreferences pref = getSharedPreferences(getString(R.string.isFirst), Activity.MODE_PRIVATE);
         boolean isFirst = pref.getBoolean(getString(R.string.isFirst), true);
@@ -93,6 +93,12 @@ public class SplashActivity extends AppCompatActivity {
 
                 mqttClient = new MqttClient(ServerIP, MqttClient.generateClientId(), null);
 //                mqttClient.connect();
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
                 mElasticDownloadView.success();
                 loadingText.setText("로딩 완료");

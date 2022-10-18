@@ -8,7 +8,7 @@ const option = {
 const client = mqtt.connect(option);
 
 client.on('connect', () => {
-  console.log('connected' + client.connected);
+  console.log('mqtt connected');
 });
 
 client.on('error', (error) => {
@@ -19,6 +19,5 @@ client.on('error', (error) => {
 client.subscribe('test/test', 'message', { retain: true, qos: 2 });
 
 client.on('message', (topic, message, packet) => {
-  console.log('message is ' + message);
-  console.log('topic is ' + topic);
+  console.log('message: ' + message + ' / topic: ' + topic);
 });

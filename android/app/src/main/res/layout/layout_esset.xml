@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/oval_black"
+    android:gravity="center"
+    android:padding="10dp">
 
-    <LinearLayout
+
+    <ImageView
+        android:id="@+id/symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        app:tint="@color/black"
+        tools:src="@drawable/ic_camera_outdoor" />
+
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/Theme.MDP_Project_2022"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:text="카카오톡 로그인" />
+
+    <Switch
+        android:id="@+id/power"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/oval_black">
+        android:paddingRight="20dp" />
 
-    </LinearLayout>
-
-</layout>
+</LinearLayout>
