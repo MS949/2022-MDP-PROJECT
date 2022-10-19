@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="LoginButton">
+    <declare-styleable name="OneClickView">
         <attr name="bg" format="reference|string" />
         <attr name="symbol" format="reference|integer" />
         <attr name="text" format="reference|string" />
-        <attr name="textColor" format="reference|integer" />
+        <attr name="textColor" format="reference|color" />
+        <attr name="isPower" format="boolean" />
     </declare-styleable>
 </resources>
