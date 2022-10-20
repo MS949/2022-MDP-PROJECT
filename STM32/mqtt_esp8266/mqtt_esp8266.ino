@@ -1,46 +1,34 @@
-/*
- Basic ESP8266 MQTT example
- This sketch demonstrates the capabilities of the pubsub library in combination
- with the ESP8266 board/library.
- It connects to an MQTT server then:
-  - publishes "hello world" to the topic "outTopic" every two seconds
-  - subscribes to the topic "inTopic", printing out any messages
-    it receives. NB - it assumes the received payloads are strings not binary
-  - If the first character of the topic "inTopic" is an 1, switch ON the ESP Led,
-    else switch it off
- It will reconnect to the server if the connection is lost using a blocking
- reconnect function. See the 'mqtt_reconnect_nonblocking' example for how to
- achieve the same result without blocking the main loop.
- To install the ESP8266 board, (using Arduino 1.6.4+):
-  - Add the following 3rd party board manager under "File -> Preferences -> Additional Boards Manager URLs":
-       http://arduino.esp8266.com/stable/package_esp8266com_index.json
-  - Open the "Tools -> Board -> Board Manager" and click install for the ESP8266"
-  - Select your ESP8266 in "Tools -> Board"
-*/
-
-#include <ESP8266WiFi.h>    
+/**
+ * @file mqtt_esp8266.c
+ * @author hanse (im763741@gmail.com)
+ * @version 1.0
+ * @date 2022-10-20
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
+#include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <string.h>
 
-// Update these with values suitable for your network.
-
-const char* ssid = "project_two";
-const char* password = "11111111";
-const char* mqtt_server = "192.168.0.100";
+const char *ssid = "project_two";
+const char *password = "11111111";
+const char *mqtt_server = "192.168.0.100";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 unsigned long lastMsg = 0;
-#define MSG_BUFFER_SIZE	(50)
+#define MSG_BUFFER_SIZE (50)
 char msg[MSG_BUFFER_SIZE];
 char to_arduino_msg[MSG_BUFFER_SIZE];
 int value = 0;
 int AT_Step = 0;
 
-void setup_wifi() {
-
+void setup_wifi()
+{
   delay(10);
   // We start by connecting to a WiFi network
+
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
@@ -48,7 +36,8 @@ void setup_wifi() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
 
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED)
+  {
     delay(500);
     Serial.print(".");
   }
@@ -61,45 +50,139 @@ void setup_wifi() {
   Serial.println(WiFi.localIP());
 }
 
-void callback(char* topic, byte* payload, unsigned int length) {
-//  Serial.print("Message arrived [");
-//  Serial.print(topic);
-//  Serial.print("] ");
-//  for (int i = 0; i < length; i++) {
-//    Serial.print((char)payload[i]);
-//  }
-//  Serial.println();
-
+void callback(char *topic, byte *payload, unsigned int length)
+{
   memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
-  for (int i = 0; i < length; i++) {
+  for (int i = 0; i < length; i++)
+  {
     to_arduino_msg[i] = (char)payload[i];
   }
 
-  // Switch on the LED if an 1 was received as first character
-  if ((char)payload[0] == '1') {
-    digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
-    // but actually the LED is on; this is because
-    // it is active low on the ESP-01)
-  } else {
-    digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
+  if (topic == "iot/LED")
+  {
+    if (strcmp(to_arduino_msg, "on") == 0)
+    {
+      Serial.println("a");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+    else if (strcmp(to_arduino_msg, "off") == 0)
+    {
+      Serial.println("A");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+  }
+  else if (topic == "iot/curtain")
+  {
+    if (strcmp(to_arduino_msg, "on") == 0)
+    {
+      Serial.println("b");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+    else if (strcmp(to_arduino_msg, "off") == 0)
+    {
+      Serial.println("B");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+  }
+  else if (topic == "iot/heating_pad")
+  {
+    if (strcmp(to_arduino_msg, "on") == 0)
+    {
+      Serial.println("c");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+    else if (strcmp(to_arduino_msg, "off") == 0)
+    {
+      Serial.println("C");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+  }
+  else if (topic == "iot/door")
+  {
+    if (strcmp(to_arduino_msg, "on") == 0)
+    {
+      Serial.println("d");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+    else if (strcmp(to_arduino_msg, "off") == 0)
+    {
+      Serial.println("D");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+  }
+  else if (topic == "iot/door/keypad")
+  {
+    if (strcmp(to_arduino_msg, "on") == 0)
+    {
+      Serial.println("e");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+    else if (strcmp(to_arduino_msg, "off") == 0)
+    {
+      Serial.println("E");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+  }
+  else if (topic == "iot/pir")
+  {
+    if (strcmp(to_arduino_msg, "on") == 0)
+    {
+      Serial.println("f");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+    else if (strcmp(to_arduino_msg, "off") == 0)
+    {
+      Serial.println("F");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+  }
+  else if (topic == "iot/music")
+  {
+    if (strcmp(to_arduino_msg, "on") == 0)
+    {
+      Serial.println("g");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+    else if (strcmp(to_arduino_msg, "off") == 0)
+    {
+      Serial.println("G");
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+    }
+  }
+  else if (topic == "device/connect")
+  {
+    Serial.println("P");
+    memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+  }
+
+  if ((char)payload[0] == '1')
+  {
+    digitalWrite(BUILTIN_LED, LOW); // Turn the LED on (Note that LOW is the voltage level)
+  }
+  else
+  {
+    digitalWrite(BUILTIN_LED, HIGH); // Turn the LED off by making the voltage HIGH
   }
 }
 
-void reconnect() {
+void reconnect()
+{
   // Loop until we're reconnected
-  while (!client.connected()) {
+  while (!client.connected())
+  {
     Serial.print("Attempting MQTT connection...");
     // Create a random client ID
     String clientId = "ESP8266Client-";
     clientId += String(random(0xffff), HEX);
     // Attempt to connect
-    if (client.connect(clientId.c_str())) {
+    if (client.connect(clientId.c_str()))
+    {
       Serial.println("connected");
-      // Once connected, publish an announcement...
-      client.publish("outTopic", "hello world");
-      // ... and resubscribe
-      client.subscribe("inTopic");
-    } else {
+
+      client.publish("device/connected", "STM32 & ESP8266 ON");
+    }
+    else
+    {
       Serial.print("failed, rc=");
       Serial.print(client.state());
       Serial.println(" try again in 5 seconds");
@@ -109,44 +192,92 @@ void reconnect() {
   }
 }
 
-void setup() {
-  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+void setup()
+{
+  pinMode(BUILTIN_LED, OUTPUT); // Initialize the BUILTIN_LED pin as an output
   Serial.begin(115200);
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
 }
 
-void loop() {
-  
-  if (!client.connected()) {
+void loop()
+{
+
+  if (!client.connected())
+  {
     reconnect();
   }
   client.loop();
 
   unsigned long now = millis();
-  if (now - lastMsg > 2000) {
-      lastMsg = now;
-//    ++value;
-//    snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld", value);
-//    Serial.print("Publish message: ");
-//    Serial.println(msg);
-//    client.publish("outTopic", msg);
+  if (now - lastMsg > 2000)
+  {
+    lastMsg = now;
   }
-   Serial.readStringUntil('\n').toCharArray(msg, 50);
-   client.publish("outTopic", msg);
-   
-   if(strcmp(to_arduino_msg, "sagging") == 0){
-      Serial.println("A");    
-      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
-   }
-   
-//   client.subscribe("inTopic"); 
-//  if(Serial.available()){
-//    if(Serial.readStringUntil('\r').equals("AT")){
-//      Serial.println("OK");  
-//    } else{
-//      Serial.println("ERROR");  
-//    } 
-//  }
+
+  String str = Serial.readStringUntil('\n');
+
+  if (str.equals("led ON"))
+  {
+    client.publish("iot/LED", "led ON");
+  }
+  else if (str.equals("led OFF"))
+  {
+    client.publish("iot/LED", "led OFF");
+  }
+
+  else if (str.equals("curtain ON"))
+  {
+    client.publish("iot/curtain", "curtain ON");
+  }
+  else if (str.equals("curtain OFF"))
+  {
+    client.publish("iot/curtain", "curtain OFF");
+  }
+
+  else if (str.equals("heating_pad ON"))
+  {
+    client.publish("iot/heating_pad", "heating_pad ON");
+  }
+  else if (str.equals("heating_pad OFF"))
+  {
+    client.publish("iot/heating_pad", "heating_pad OFF");
+  }
+
+  else if (str.equals("door ON"))
+  {
+    client.publish("iot/door", "door ON");
+  }
+  else if (str.equals("door OFF"))
+  {
+    client.publish("iot/door", "door OFF");
+  }
+
+  else if (str.equals("door/keypad ON"))
+  {
+    client.publish("iot/door/keypad", "door/keypad ON");
+  }
+  else if (str.equals("door/keypad OFF"))
+  {
+    client.publish("iot/door/keypad", "door/keypad OFF");
+  }
+
+  else if (str.equals("pir ON"))
+  {
+    client.publish("iot/pir", "pir ON");
+  }
+  else if (str.equals("pir OFF"))
+  {
+    client.publish("iot/pir", "pir OFF");
+  }
+
+  else if (str.equals("music ON"))
+  {
+    client.publish("iot/music", "music ON");
+  }
+  else if (str.equals("pir OFF"))
+  {
+    client.publish("iot/music", "music OFF");
+  }
 }
