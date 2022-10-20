@@ -18,9 +18,8 @@
   - Select your ESP8266 in "Tools -> Board"
 */
 
-#include <ESP8266WiFi.h>
+#include <ESP8266WiFi.h>    
 #include <PubSubClient.h>
-#include <SoftwareSerial.h>
 #include <string.h>
 
 // Update these with values suitable for your network.
@@ -29,12 +28,12 @@ const char* ssid = "project_two";
 const char* password = "11111111";
 const char* mqtt_server = "192.168.0.100";
 
-SoftwareSerial espSerial(3, 1); // RX, TX
 WiFiClient espClient;
 PubSubClient client(espClient);
 unsigned long lastMsg = 0;
 #define MSG_BUFFER_SIZE	(50)
 char msg[MSG_BUFFER_SIZE];
+char to_arduino_msg[MSG_BUFFER_SIZE];
 int value = 0;
 int AT_Step = 0;
 
@@ -63,13 +62,18 @@ void setup_wifi() {
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
-  Serial.print("Message arrived [");
-  Serial.print(topic);
-  Serial.print("] ");
+//  Serial.print("Message arrived [");
+//  Serial.print(topic);
+//  Serial.print("] ");
+//  for (int i = 0; i < length; i++) {
+//    Serial.print((char)payload[i]);
+//  }
+//  Serial.println();
+
+  memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
   for (int i = 0; i < length; i++) {
-    Serial.print((char)payload[i]);
+    to_arduino_msg[i] = (char)payload[i];
   }
-  Serial.println();
 
   // Switch on the LED if an 1 was received as first character
   if ((char)payload[0] == '1') {
@@ -79,7 +83,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   } else {
     digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
   }
-
 }
 
 void reconnect() {
@@ -112,39 +115,38 @@ void setup() {
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
-  espSerial.begin(115200);
-  espSerial.setTimeout(100);
 }
 
 void loop() {
-
+  
   if (!client.connected()) {
     reconnect();
   }
   client.loop();
 
   unsigned long now = millis();
-//  if (now - lastMsg > 2000) {
-//    lastMsg = now;
+  if (now - lastMsg > 2000) {
+      lastMsg = now;
 //    ++value;
 //    snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld", value);
 //    Serial.print("Publish message: ");
 //    Serial.println(msg);
 //    client.publish("outTopic", msg);
-//  }
-
-  if(espSerial.available()){
-    if(AT_Step == 0){
-          if(espSerial.readStringUntil('\r').equals("AT:DOOR")){
-      espSerial.print("OK");
-      AT_Step+= 1;
-    }else{
-      espSerial.print("ERROR");
-    }
-   }
-   if(AT_Step == 1){
-      sprintf(msg, "%s",espSerial.readStringUntil('\r'));
-      client.publish("outTopic", msg);
-   }
   }
+   Serial.readStringUntil('\n').toCharArray(msg, 50);
+   client.publish("outTopic", msg);
+   
+   if(strcmp(to_arduino_msg, "sagging") == 0){
+      Serial.println("A");    
+      memset(to_arduino_msg, 0, MSG_BUFFER_SIZE);
+   }
+   
+//   client.subscribe("inTopic"); 
+//  if(Serial.available()){
+//    if(Serial.readStringUntil('\r').equals("AT")){
+//      Serial.println("OK");  
+//    } else{
+//      Serial.println("ERROR");  
+//    } 
+//  }
 }
