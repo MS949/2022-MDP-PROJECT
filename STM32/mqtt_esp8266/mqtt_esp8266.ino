@@ -20,6 +20,8 @@
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+#include <SoftwareSerial.h>
+#include <string.h>
 
 // Update these with values suitable for your network.
 
@@ -27,12 +29,14 @@ const char* ssid = "project_two";
 const char* password = "11111111";
 const char* mqtt_server = "192.168.0.100";
 
+SoftwareSerial espSerial(3, 1); // RX, TX
 WiFiClient espClient;
 PubSubClient client(espClient);
 unsigned long lastMsg = 0;
 #define MSG_BUFFER_SIZE	(50)
 char msg[MSG_BUFFER_SIZE];
 int value = 0;
+int AT_Step = 0;
 
 void setup_wifi() {
 
@@ -108,6 +112,8 @@ void setup() {
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
+  espSerial.begin(115200);
+  espSerial.setTimeout(100);
 }
 
 void loop() {
@@ -118,12 +124,27 @@ void loop() {
   client.loop();
 
   unsigned long now = millis();
-  if (now - lastMsg > 2000) {
-    lastMsg = now;
-    ++value;
-    snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld", value);
-    Serial.print("Publish message: ");
-    Serial.println(msg);
-    client.publish("outTopic", msg);
+//  if (now - lastMsg > 2000) {
+//    lastMsg = now;
+//    ++value;
+//    snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld", value);
+//    Serial.print("Publish message: ");
+//    Serial.println(msg);
+//    client.publish("outTopic", msg);
+//  }
+
+  if(espSerial.available()){
+    if(AT_Step == 0){
+          if(espSerial.readStringUntil('\r').equals("AT:DOOR")){
+      espSerial.print("OK");
+      AT_Step+= 1;
+    }else{
+      espSerial.print("ERROR");
+    }
+   }
+   if(AT_Step == 1){
+      sprintf(msg, "%s",espSerial.readStringUntil('\r'));
+      client.publish("outTopic", msg);
+   }
   }
 }
