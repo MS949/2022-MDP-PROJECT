@@ -1,0 +1,12 @@
+device
+ㄴdevice/connect - 클라이언트에서 device 연결 P
+ㄴdevice/init - STM에서 세팅값 전송
+
+iot
+ㄴiot/LED - 전구 통신 aA
+ㄴiot/curtain - 커튼 통신 bB
+ㄴiot/heating_pad - 전기장판 통신 cC
+ㄴiot/door - 문 통신 dD
+  ㄴiot/door/keypad - KEYPAD onoff eE
+ㄴiot/pir - 적외선 센서 fF
+ㄴiot/music - 스피커 gG
