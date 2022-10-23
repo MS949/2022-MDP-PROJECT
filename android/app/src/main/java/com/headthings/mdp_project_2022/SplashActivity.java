@@ -1,27 +1,17 @@
 package com.headthings.mdp_project_2022;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.LinkProperties;
-import android.net.Network;
-import android.net.NetworkCapabilities;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,10 +26,6 @@ public class SplashActivity extends AppCompatActivity {
     TextView loadingText;
 
     private final Handler mHandler = new Handler();
-
-    private final String ServerIP = "tcp://192.168.0.100:1883";
-    private final String TOPIC = "test/test";
-    public static MqttClient mqttClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,45 +67,43 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences(getString(R.string.isFirst), Activity.MODE_PRIVATE);
         boolean isFirst = pref.getBoolean(getString(R.string.isFirst), true);
 
+        AtomicBoolean error = new AtomicBoolean(true);
+
         mHandler.post(() -> {
+            mElasticDownloadView.startIntro();
+
+            mElasticDownloadView.setProgress(0);
+            loadingText.setText("WIFI CHECK");
+        });
+
+        mHandler.postDelayed(() -> {
             try {
-                mElasticDownloadView.startIntro();
-
-                mElasticDownloadView.setProgress(0);
-                loadingText.setText("WIFI CHECK");
-
                 mElasticDownloadView.setProgress(50);
                 loadingText.setText("Server connect...");
 
-                mqttClient = new MqttClient(ServerIP, MqttClient.generateClientId(), null);
-//                mqttClient.connect();
+                Mqtt.mqttClient.connect();
+                Mqtt.mqttClient.publish("device/connect", "android connected".getBytes(), 0, false);
 
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                mElasticDownloadView.success();
-                loadingText.setText("로딩 완료");
-
-                try {
-                    Thread.sleep(300);
-                    startActivity(new Intent(this, MainActivity.class));
-                    if (isFirst) {
-                        startActivity(new Intent(this, FirstBootingActivity.class));
-                    }
-                    finish();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             } catch (MqttException e) {
                 mElasticDownloadView.fail();
-                Log.d("MQTT", e.toString());
                 loadingText.setText("에러: " + e.getMessage());
-                e.printStackTrace();
+                error.set(false);
             }
+        }, 500);
 
-        });
+        mHandler.postDelayed(() -> {
+            if (error.get()) {
+                mElasticDownloadView.success();
+                loadingText.setText("로딩 완료");
+            }
+        }, 1500);
+
+        mHandler.postDelayed(() -> {
+            startActivity(new Intent(this, MainActivity.class));
+            if (isFirst) {
+                startActivity(new Intent(this, FirstBootingActivity.class));
+            }
+            finish();
+        }, 3000);
     }
 }

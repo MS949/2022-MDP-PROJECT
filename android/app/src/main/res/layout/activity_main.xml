@@ -11,7 +11,7 @@
         android:id="@+id/main_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/secondary_varient"
+        android:background="@color/primary"
         android:paddingBottom="15dp" />
 
     <github.com.st235.lib_expandablebottombar.ExpandableBottomBar

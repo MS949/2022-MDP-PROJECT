@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@color/secondary_varient"
+    tools:background="@color/primary"
     tools:context=".MainActivity">
 
     <TextView
@@ -26,26 +26,47 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.headthings.mdp_project_2022.OneClickView
-        android:id="@+id/curtain"
+        android:id="@+id/bulb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_text"
-        app:symbol="@drawable/ic_outline_curtains"
+        app:symbol="@drawable/ic_lightbulb"
+        app:text="전구"
+        app:textColor="@color/black" />
+
+    <com.headthings.mdp_project_2022.OneClickView
+        android:id="@+id/curtain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bulb"
+        app:symbol="@drawable/ic_curtains"
         app:text="커튼"
         app:textColor="@color/black" />
 
     <com.headthings.mdp_project_2022.OneClickView
-        android:id="@+id/camera"
+        android:id="@+id/heating_pad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/curtain"
-        app:symbol="@drawable/ic_sensor_door"
-        app:text="외부 카메라"
+        app:symbol="@drawable/ic_fire"
+        app:text="전기장판"
         app:textColor="@color/black" />
 
+    <com.headthings.mdp_project_2022.OneClickView
+        android:id="@+id/door"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heating_pad"
+        app:symbol="@drawable/ic_sensor_door"
+        app:text="도어락"
+        app:textColor="@color/black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
