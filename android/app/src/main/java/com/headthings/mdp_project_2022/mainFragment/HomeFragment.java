@@ -1,10 +1,14 @@
 package com.headthings.mdp_project_2022.mainFragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +18,7 @@ import com.headthings.mdp_project_2022.Mqtt;
 import com.headthings.mdp_project_2022.OneClickView;
 import com.headthings.mdp_project_2022.R;
 
+import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import butterknife.BindView;
@@ -33,6 +38,8 @@ public class HomeFragment extends Fragment {
     @BindView(R.id.door)
     OneClickView door;
 
+    MqttClient mqtt = Mqtt.getInstance();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,10 +50,10 @@ public class HomeFragment extends Fragment {
             try {
                 if (b) {
                     Log.d("iot/led", "on");
-                    Mqtt.mqttClient.publish("iot/led", "on".getBytes(), 0, false);
+                    mqtt.publish("iot/led", "on".getBytes(), 0, false);
                 } else {
                     Log.d("iot/led", "off");
-                    Mqtt.mqttClient.publish("iot/led", "off".getBytes(), 0, false);
+                    mqtt.publish("iot/led", "off".getBytes(), 0, false);
                 }
             } catch (MqttException e) {
                 e.printStackTrace();
@@ -57,10 +64,10 @@ public class HomeFragment extends Fragment {
             try {
                 if (b) {
                     Log.d("iot/curtain", "on");
-                    Mqtt.mqttClient.publish("iot/curtain", "on".getBytes(), 0, false);
+                    mqtt.publish("iot/curtain", "on".getBytes(), 0, false);
                 } else {
                     Log.d("iot/curtain", "off");
-                    Mqtt.mqttClient.publish("iot/curtain", "off".getBytes(), 0, false);
+                    mqtt.publish("iot/curtain", "off".getBytes(), 0, false);
                 }
             } catch (MqttException e) {
                 e.printStackTrace();
@@ -71,10 +78,10 @@ public class HomeFragment extends Fragment {
             try {
                 if (b) {
                     Log.d("iot/heating_pad", "on");
-                    Mqtt.mqttClient.publish("iot/heating_pad", "on".getBytes(), 0, false);
+                    mqtt.publish("iot/heating_pad", "on".getBytes(), 0, false);
                 } else {
                     Log.d("iot/heating_pad", "off");
-                    Mqtt.mqttClient.publish("iot/heating_pad", "off".getBytes(), 0, false);
+                    mqtt.publish("iot/heating_pad", "off".getBytes(), 0, false);
                 }
             } catch (MqttException e) {
                 e.printStackTrace();
@@ -85,15 +92,32 @@ public class HomeFragment extends Fragment {
             try {
                 if (b) {
                     Log.d("iot/door", "on");
-                    Mqtt.mqttClient.publish("iot/door", "on".getBytes(), 0, false);
+                    mqtt.publish("iot/door", "on".getBytes(), 0, false);
                 } else {
                     Log.d("iot/door", "off");
-                    Mqtt.mqttClient.publish("iot/door", "off".getBytes(), 0, false);
+                    mqtt.publish("iot/door", "off".getBytes(), 0, false);
                 }
             } catch (MqttException e) {
                 e.printStackTrace();
             }
         });
+
+        new Handler().postDelayed(() -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+            builder.setTitle("오류").setMessage("WiFi가 비활성화 되었습니다.");
+
+            builder.setPositiveButton("재시도", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Toast.makeText(getActivity(), "재시도", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+
+        }, 10000);
 
         return view;
     }

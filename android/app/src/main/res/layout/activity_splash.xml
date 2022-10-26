@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/elastic_download_view"
         android:layout_centerHorizontal="true"
-        android:textSize="24sp"
+        android:textSize="22sp"
         tools:text="Server connect..." />
 
 </RelativeLayout>
